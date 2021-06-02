@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaBanTon", "GaBanTon.csproj", "{999649D5-C3A8-4E36-9892-087F6990636C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{999649D5-C3A8-4E36-9892-087F6990636C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999649D5-C3A8-4E36-9892-087F6990636C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999649D5-C3A8-4E36-9892-087F6990636C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999649D5-C3A8-4E36-9892-087F6990636C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82A2EF02-20DE-4E65-8F95-51748A1CC986}
+	EndGlobalSection
+EndGlobal
