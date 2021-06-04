@@ -11,6 +11,8 @@ namespace GaBanTon.Models
         public int MemberID { get; set; }
         public int GroupID { get; set; }
         public int MenuID { get; set; }
+        public string MenuName { get; set; }
         public int Qty { get; set; }
+        public decimal Price { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace GaBanTon.Models
         public int Sid { get; set; }
         public string GroupImg { get; set; }
         public string GroupTital { get; set; }
+        public int MemberID { get; set; }
         public string MemberName { get; set; }
         public int ShopID { get; set; }
         public string ShopName { get; set; }

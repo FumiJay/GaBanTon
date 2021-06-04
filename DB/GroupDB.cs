@@ -40,7 +40,7 @@ namespace GaBanTon.DB
         public static MainPageModel GetGroupModel(int Sid)
         {
             string queryString = $@" SELECT
-                                     GroupImg, GroupTital, MemberName, ShopID, ShopName, Status
+                                     GroupImg, GroupTital,MemberID, MemberName, ShopID, ShopName, Status
                                      FROM [Group]
                                      WHERE Sid = @Sid";
 
@@ -61,6 +61,7 @@ namespace GaBanTon.DB
                         model = new MainPageModel();
                         model.GroupImg = (string)reader["GroupImg"];
                         model.GroupTital = (string)reader["GroupTital"];
+                        model.MemberID = (int)reader["MemberID"];
                         model.MemberName = (string)reader["MemberName"];
                         model.ShopID = (int)reader["ShopID"];
                         model.ShopName = (string)reader["ShopName"];

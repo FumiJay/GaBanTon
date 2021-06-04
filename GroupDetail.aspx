@@ -43,6 +43,10 @@
         #Buy {
             border-radius: 5px;
         }
+
+        #Tital {
+            color: red;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -56,7 +60,7 @@
             </div>
             <br />
             <div id="GroupInfo">
-                狀態:<asp:DropDownList ID="GroupStaus1" runat="server">
+                狀態:<asp:DropDownList ID="GroupStaus" runat="server">
                     <asp:ListItem>未結團</asp:ListItem>
                     <asp:ListItem>結團</asp:ListItem>
                     <asp:ListItem>已結束</asp:ListItem>
@@ -68,7 +72,19 @@
             </div>
             &nbsp;
             <div class="justify-content-center align-items-center">
-                <asp:Button ID="btnResult" class="btn btn-success" runat="server" Text="結單!" />
+                <asp:Button ID="btnResult" class="btn btn-success" runat="server" OnClick="btnResult_Click" Text="結單!" />
+            </div>
+            <div class="border border-right">
+                <asp:Label ID="Tital" runat="server">小計</asp:Label><br />
+                <asp:Repeater ID="SubTotal" runat="server" OnItemDataBound="SubTotal_ItemDataBound">
+                    <ItemTemplate>
+                        餐點:
+                        <asp:Label ID="Food" runat="server"> <%#Eval("MenuName") %> ✕ <%#Eval("Qty") %> 個 </asp:Label><br />
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        <asp:Label ID="Price" runat="server"></asp:Label><br />
+                    </FooterTemplate>
+                </asp:Repeater>
             </div>
         </div>
         <br />
@@ -93,16 +109,19 @@
         <br />
         <hr />
         <div class="row Member">
-            <asp:Repeater ID="WhoBuy" runat="server" OnItemDataBound="WhoBuy_ItemDataBound">
+            <asp:Repeater ID="WhoBuy" runat="server" OnItemCommand="WhoBuy_ItemCommand" OnItemDataBound="WhoBuy_ItemDataBound">
                 <ItemTemplate>
                     <div class="btn btn-outline-secondary col-md-3 col-sm-6 Member">
+                        <asp:Button ID="btnDelete" CommandName="DeleteItem" CommandArgument='<%#Eval("MemberID") %>' CssClass="btn btn-outline-warning" runat="server" Text="✕" />
                         <img id="MemberImg" src="img/Member.png" />
                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("Name")%>'></asp:Label><br />
+                        <br />
                         <asp:Repeater ID="Food" runat="server">
                             <ItemTemplate>
                                 <asp:Label ID="Food_Qty" runat="server" Text='<%#Eval("MenuName")+","+Eval("Qty") %>'></asp:Label><br />
                             </ItemTemplate>
                         </asp:Repeater>
+                        <br />
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
@@ -112,7 +131,7 @@
         <div id="Car_1" class="row">
             <div id="Car_2" class="border border-primary col-md-3 col-sm-6">
                 <img id="CarImg" src="img/card.png" />
-                <asp:Label ID="BuyCar" runat="server" Text=""></asp:Label><br />
+                <asp:Label ID="BuyCar" runat="server">BuyCar</asp:Label><br />
                 <asp:Label ID="Menu_Total" runat="server" Text=""></asp:Label><br />
                 <asp:Label ID="Price_Total" runat="server" Text=""></asp:Label><br />
                 <asp:Button ID="Buy" class="btn btn-success" runat="server" Text="下訂!" OnClick="Buy_Click" />
